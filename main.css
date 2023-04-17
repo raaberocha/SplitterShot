@@ -1,0 +1,20 @@
+body {
+
+    background: rgb(47, 223, 47);
+    color: #666666;
+    font-size: 14px;
+    font-family: Poppins;
+    line-height: 1.80857;
+    font-weight: normal;
+    overflow-x: hidden;
+    padding-right: 300px;
+    padding-left: 300px;
+    white-space: nowrap
+    
+
+}
+h1 {
+    text-align: center;
+    font-family: 'Rubik Mono One', sans-serif;
+}
+

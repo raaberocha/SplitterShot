@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="bootstrap.css">
+	<script type="text/javascript" src="bootstrap.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+	<title>SplitterShot</title>
+</head>
+<body>
+	<h1>SplitterShot Studios</h1><br>
+
+	  
+	  <div class="header_section">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+         <div class="logo"><a href="index.html"></a></div>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+               <li class="nav-item active">
+                  <a class="nav-link" href="index.html">Home</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="symptoms.html">Films</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="maptest.html">Behind the Scenes</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="client.html">Press & Interviews</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="client.html">About</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="contact.html">Contact</a>
+               </li>
+            </ul>
+         </div>
+      </nav>
+	<div id="map"></div>
+	<script type="text/javascript">
+	function initMap() {
+  var center = {lat: 34.052235, lng: -118.243683};
+  var locations = [
+    ['Philz Coffee<br>\
+    801 S Hope St A, Los Angeles, CA 90017<br>\
+   <a href="https://goo.gl/maps/L8ETMBt7cRA2">Get Directions</a>',   34.046438, -118.259653],
+    ['Philz Coffee<br>\
+    525 Santa Monica Blvd, Santa Monica, CA 90401<br>\
+   <a href="https://goo.gl/maps/PY1abQhuW9C2">Get Directions</a>', 34.017951, -118.493567],
+    ['Philz Coffee<br>\
+    146 South Lake Avenue #106, At Shoppers Lane, Pasadena, CA 91101<br>\
+    <a href="https://goo.gl/maps/eUmyNuMyYNN2">Get Directions</a>', 34.143073, -118.132040],
+    ['Philz Coffee<br>\
+    21016 Pacific Coast Hwy, Huntington Beach, CA 92648<br>\
+    <a href="https://goo.gl/maps/Cp2TZoeGCXw">Get Directions</a>', 33.655199, -117.998640],
+    ['Philz Coffee<br>\
+    252 S Brand Blvd, Glendale, CA 91204<br>\
+   <a href="https://goo.gl/maps/WDr2ef3ccVz">Get Directions</a>', 34.142823, -118.254569]
+  ];
+var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 9,
+    center: center
+  });
+var infowindow =  new google.maps.InfoWindow({});
+var marker, count;
+for (count = 0; count < locations.length; count++) {
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng(locations[count][1], locations[count][2]),
+      map: map,
+      title: locations[count][0]
+    });
+google.maps.event.addListener(marker, 'click', (function (marker, count) {
+      return function () {
+        infowindow.setContent(locations[count][0]);
+        infowindow.open(map, marker);
+      }
+    })(marker, count));
+  }
+} 
+</script>
+<script async defer src= "https://maps.googleapis.com/maps/api/js?key=AIzaSyAt1mYBdSWlW0tDJwE-UqPbq3gtVWkRG-4&callback=initMap">
+     defer
+     </script>
+</body>
+</html>
